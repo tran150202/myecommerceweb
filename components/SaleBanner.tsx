@@ -22,11 +22,10 @@ async function SaleBanner() {
           <div className="flex">
             <div className="bg-white text-black py-2 px-4 sm:py-4 sm:px-6 rounded-full shadow-md transform hover:scale-105 transition duration-300">
               <span className="font-bold text-base sm:text-xl">
-                USE CODE:{" "}
-                <span className="text-red-600">{sale?.couponCode}</span>
+                Nhập: <span className="text-blue-700">{sale?.couponCode}</span>
               </span>
               <span className="ml-2 font-bold text-base sm:text-xl">
-                for {sale?.discountAmount}% OFF
+                để được giảm {sale?.discountAmount}%
               </span>
             </div>
           </div>
