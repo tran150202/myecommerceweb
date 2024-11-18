@@ -71,7 +71,7 @@ function Header() {
                 <span>Hóa đơn</span>
               </Link>
             </SignedIn>
-            <SignedIn>
+            {/* <SignedIn>
               <Link
                 href="/studio"
                 target="_blank"
@@ -80,7 +80,7 @@ function Header() {
                 <PackageIcon className="w-6 h-6" />
                 <span>Quản lý</span>
               </Link>
-            </SignedIn>
+            </SignedIn> */}
             {user ? (
               <div className="flex items-center space-x-2">
                 <UserButton />
