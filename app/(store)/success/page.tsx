@@ -67,9 +67,7 @@ function SuccessPage() {
           </div>
         </div>
 
-        <div className="space-y-4">
-          <p className="text-gray-600">Đã gửi xác nhận vào email</p>
-        </div>
+        <div className="space-y-4"></div>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button asChild variant="outline">
             <Link href="/orders">Xem chi tiết</Link>
