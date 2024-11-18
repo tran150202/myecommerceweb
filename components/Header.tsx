@@ -94,14 +94,14 @@ function Header() {
                 <SignInButton mode="modal">Đăng nhập</SignInButton>
               </div>
             )}
-            {user?.passkeys.length === 0 && (
+            {/* {user?.passkeys.length === 0 && (
               <button
                 onClick={createClerkPasskey}
                 className="bg-white hover:bg-blue-700 hover:text-blue animate-pulse text-blue-500 font-bold py-2 px-4 rounded border-blue-300 border"
               >
                 Tạo passkey
               </button>
-            )}
+            )} */}
           </ClerkLoaded>
         </div>
       </div>
