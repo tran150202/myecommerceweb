@@ -6,10 +6,10 @@ import { useState } from "react";
 
 function ProductThumb({ product }: { product: Product }) {
   const isOutOfStock = product.stock != null && product.stock <= 0;
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const openModal = (e: React.MouseEvent) => {
-    e.preventDefault(); // Ngăn chặn hành động chuyển trang mặc định
+    e.preventDefault();
     setIsOpen(true);
   };
   const closeModal = () => setIsOpen(false);
