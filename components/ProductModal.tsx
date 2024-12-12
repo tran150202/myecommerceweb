@@ -12,7 +12,11 @@ interface ProductModalProps {
   product: Product;
 }
 
-const ProductModal = ({ isOpen, closeModal, product }: ProductModalProps) => {
+const ProductModal = ({
+  isOpen = true,
+  closeModal,
+  product,
+}: ProductModalProps) => {
   const isOutOfStock = product.stock != null && product.stock <= 0;
 
   return (
