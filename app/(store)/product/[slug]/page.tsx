@@ -1,6 +1,3 @@
-// components/ProductPage.tsx
-"use client";
-
 import ProductModal from "@/components/ProductModal";
 import { Product } from "@/sanity.types";
 

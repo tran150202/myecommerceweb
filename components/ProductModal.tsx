@@ -1,6 +1,3 @@
-// components/ProductModal.tsx
-"use client";
-
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import AddToBasketButton from "@/components/AddToBasketButton";
@@ -21,7 +18,6 @@ const ProductModal = ({ isOpen, closeModal, product }: ProductModalProps) => {
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-50" onClose={closeModal}>
-        {/* Background overlay */}
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-500"
@@ -31,7 +27,7 @@ const ProductModal = ({ isOpen, closeModal, product }: ProductModalProps) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black bg-opacity-60" />
+          <div className="fixed inset-0 bg-black bg-opacity-60 " />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
@@ -53,7 +49,7 @@ const ProductModal = ({ isOpen, closeModal, product }: ProductModalProps) => {
                       isOutOfStock ? "opacity-50" : ""
                     }`}
                   >
-                    {product.image && (
+                    {product.image?.asset && (
                       <Image
                         src={imageUrl(product.image).url()}
                         alt={product.name ?? "Product image"}
@@ -74,7 +70,7 @@ const ProductModal = ({ isOpen, closeModal, product }: ProductModalProps) => {
                   <div className="flex flex-col justify-between">
                     <div>
                       <h1 className="text-4xl font-bold mb-6 text-gray-800">
-                        {product.name}
+                        {product.name ?? "Tên sản phẩm"}
                       </h1>
                       <div className="text-2xl font-semibold mb-6 text-gray-700">
                         {product.price?.toLocaleString("vi-VN")} VND
