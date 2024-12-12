@@ -1,4 +1,4 @@
-import ProductPage from "@/app/(store)/product/[slug]/page";
+import ProductPage from "@/app/(store)/product/[slug]/pages";
 import { imageUrl } from "@/lib/imageUrl";
 import { Product } from "@/sanity.types";
 import Image from "next/image";
