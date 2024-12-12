@@ -119,7 +119,7 @@ async function Orders() {
                             Số lượng: {product.quantity ?? "N/A"}
                           </p>
                         </div>
-                        <p className="ml-auto font-medium font-bold">
+                        <p className="ml-auto ">
                           {product.product?.price && product.quantity
                             ? formatCurrency(
                                 product.product.price * product.quantity

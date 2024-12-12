@@ -3,9 +3,7 @@ import "../globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import Header from "@/components/Header";
 import { SanityLive } from "@/sanity/lib/live";
-import { VisualEditing } from "next-sanity";
-import { draftMode } from "next/headers";
-import { DisableDraftMode } from "@/components/DisableDraftMode";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,20 +18,11 @@ export default async function RootLayout({
   return (
     <ClerkProvider dynamic>
       <html lang="en">
-        <body>
-          {/* <div>
-            {(await draftMode()).isEnabled && (
-              <>
-                <DisableDraftMode />
-                <VisualEditing />
-              </>
-            )}
-          </div> */}
-          <main>
-            <Header />
-            {children}
-          </main>
+        <body className="relative ">
+          <Header />
+          {children}
           <SanityLive />
+          <Footer />
         </body>
       </html>
     </ClerkProvider>

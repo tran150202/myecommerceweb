@@ -2,70 +2,81 @@ import { TrolleyIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export const productType = defineType({
-  name: "product", // Change this to "product" to match the reference in orderType
-  title: "Product",
+  name: "product",
+  title: "Products",
   type: "document",
   icon: TrolleyIcon,
   fields: [
     defineField({
       name: "name",
-      title: "Product Name",
+      title: "Tên sản phẩm",
       type: "string",
-      validation: (Rule) => Rule.required(),
+      description: "Tên của sản phẩm.",
+      validation: (Rule) => Rule.required().error("Tên sản phẩm là bắt buộc."),
     }),
     defineField({
       name: "slug",
-      title: "Slug",
+      title: "Đường dẫn",
       type: "slug",
+      description: "Đường dẫn URL cho sản phẩm.",
       options: {
-        source: "name",
+        source: "name", // Tự động tạo slug từ tên sản phẩm
         maxLength: 96,
       },
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().error("Slug là bắt buộc."),
     }),
     defineField({
       name: "image",
-      title: "Product Image",
+      title: "Hình ảnh sản phẩm",
       type: "image",
+      description: "Hình ảnh đại diện cho sản phẩm.",
       options: {
         hotspot: true,
       },
+      validation: (Rule) =>
+        Rule.required().error("Hình ảnh sản phẩm là bắt buộc."),
     }),
     defineField({
       name: "description",
-      type: "text",
+      title: "Mô tả",
+      type: "blockContent",
+      description: "Mô tả chi tiết về sản phẩm.",
+    }),
+    defineField({
+      name: "price",
+      title: "Giá",
+      type: "number",
+      description: "Giá của sản phẩm (VNĐ).",
+      validation: (Rule) =>
+        Rule.required().min(0).error("Giá sản phẩm phải lớn hơn hoặc bằng 0."),
     }),
     defineField({
       name: "categories",
-      title: "Categories",
+      title: "Danh mục",
       type: "array",
+      description: "Danh mục mà sản phẩm này thuộc về.",
       of: [{ type: "reference", to: { type: "category" } }],
     }),
     defineField({
       name: "stock",
-      title: "Stock",
+      title: "Số lượng tồn kho",
       type: "number",
-      validation: (Rule) => Rule.min(0),
-    }),
-    defineField({
-      name: "price",
-      title: "Price",
-      type: "number",
-      validation: (Rule) => Rule.min(0),
+      description: "Số lượng sản phẩm còn trong kho.",
+      validation: (Rule) =>
+        Rule.min(0).error("Số lượng tồn kho không được nhỏ hơn 0."),
     }),
   ],
   preview: {
     select: {
       title: "name",
       media: "image",
-      price: "price",
+      subtitle: "price",
     },
     prepare(select) {
-      const { title, price, media } = select;
       return {
-        title,
-        subtitle: price ? `$${price}` : "No price set",
-        media,
+        title: select.title,
+        subtitle: select.subtitle ? `${select.subtitle} VNĐ` : "Chưa có giá",
+        media: select.media,
       };
     },
   },
