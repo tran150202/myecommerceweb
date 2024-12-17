@@ -60,7 +60,7 @@ const Hero = () => {
             <p className="text-base font-bold text-gray-600">
               Sử dụng "GIAMGIA" để giảm giá 50%
             </p>
-            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 mb-4">
+            <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-4">
               Khám Phá Phong Cách Của Bạn!
             </h1>
 
@@ -107,7 +107,7 @@ const Hero = () => {
       <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-purple-700 mb-4">
+            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-4">
               Dịch Vụ Của Chúng Tôi
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -179,7 +179,7 @@ const Hero = () => {
             <p className="text-lg text-gray-500 mb-4 tracking-wide uppercase">
               Sứ Mệnh Của Chúng Tôi
             </p>
-            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500">
+            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900">
               Cam Kết Mang Đến Giá Trị Cho Cộng Đồng
             </h2>
           </div>
@@ -253,7 +253,7 @@ const Hero = () => {
             {/* Text Content */}
             <div className="space-y-6">
               <div className="overflow-hidden">
-                <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 mb-4 transform transition-all duration-500 hover:scale-105 inline-block">
+                <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-4 transform transition-all duration-500 hover:scale-105 inline-block">
                   Giao Hàng Toàn Cầu
                 </h2>
                 <p className="text-xl text-gray-600 mb-8">
@@ -319,7 +319,7 @@ const Hero = () => {
       <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-purple-700 mb-4">
+            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-4">
               Hỗ Trợ Khách Hàng
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -360,7 +360,7 @@ const Hero = () => {
       <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 mb-4">
+            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900 mb-4">
               {paymentSectionContent.title}
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -440,7 +440,7 @@ const Hero = () => {
       <section className="py-16 bg-gradient-to-br from-white to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 mb-4">
+            <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4">
               Đánh Giá Từ Khách Hàng
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -450,46 +450,44 @@ const Hero = () => {
 
           <div className="max-w-3xl mx-auto relative">
             <div
-              className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 relative overflow-hidden transition-all duration-500 ease-in-out "
+              className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 relative overflow-hidden transition-all duration-500 ease-in-out"
               key={currentReview} // Force re-render on review change
             >
               <Quote className="absolute top-4 left-4 text-blue-100 w-12 h-12" />
               <Quote className="absolute bottom-4 right-4 text-blue-100 w-12 h-12 rotate-180" />
 
-              <div className="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8 animate-fade-in">
-                <FadeInContent>
-                  <div className="shrink-0 ">
-                    <img
-                      src={reviews[currentReview].avatar}
-                      alt={reviews[currentReview].name}
-                      className="w-24 h-24 rounded-full border-4 border-blue-100 shadow-lg animate-scale-in"
-                    />
+              <div className=" flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8 animate-fade-in">
+                <div className="shrink-0">
+                  <img
+                    src={reviews[currentReview].avatar}
+                    alt={reviews[currentReview].name}
+                    className="w-24 h-24 rounded-full border-4 border-blue-100 shadow-lg animate-scale-in"
+                  />
+                </div>
+
+                <div className="text-center md:text-left flex-grow">
+                  <div className="flex justify-center md:justify-start mb-4">
+                    {[...Array(reviews[currentReview].rating)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-6 h-6 text-yellow-400 fill-yellow-400"
+                      />
+                    ))}
                   </div>
 
-                  <div className="text-center md:text-left flex-grow">
-                    <div className="flex justify-center md:justify-start mb-4">
-                      {[...Array(reviews[currentReview].rating)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="w-6 h-6 text-yellow-400 fill-yellow-400"
-                        />
-                      ))}
-                    </div>
+                  <p className="text-gray-700 text-xl italic mb-4">
+                    "{reviews[currentReview].quote}"
+                  </p>
 
-                    <p className="text-gray-700 text-xl italic mb-4">
-                      "{reviews[currentReview].quote}"
+                  <div>
+                    <h4 className="text-xl font-bold text-gray-900">
+                      {reviews[currentReview].name}
+                    </h4>
+                    <p className="text-gray-600">
+                      {reviews[currentReview].role}
                     </p>
-
-                    <div>
-                      <h4 className="text-xl font-bold text-gray-900">
-                        {reviews[currentReview].name}
-                      </h4>
-                      <p className="text-gray-600">
-                        {reviews[currentReview].role}
-                      </p>
-                    </div>
                   </div>
-                </FadeInContent>
+                </div>
               </div>
             </div>
 
