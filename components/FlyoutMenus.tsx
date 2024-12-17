@@ -18,7 +18,7 @@ const FlyoutMenus = () => {
           {navigation.categories.map((category) => (
             <Popover key={category.name} className="flex z-10">
               <div className="relative flex">
-                <PopoverButton className="relative z-10 -mb-px flex items-center border-b-2 border-transparent pt-px text-sm font-medium text-gray-700 transition-colors duration-200 ease-out hover:text-gray-800 data-[open]:border-indigo-600 data-[open]:text-indigo-600">
+                <PopoverButton className="relative z-10 -mb-px flex items-center border-b-2 border-transparent pt-px text-sm font-bold text-gray-700 transition-colors duration-200 ease-out hover:text-blue-700 data-[open]:border-indigo-600 data-[open]:text-indigo-600">
                   {category.name}
                 </PopoverButton>
               </div>
@@ -49,7 +49,7 @@ const FlyoutMenus = () => {
                             />
                             <a
                               href={item.href}
-                              className="mt-6 block font-medium text-gray-900"
+                              className="mt-6 block font-bold text-gray-900"
                             >
                               <span
                                 aria-hidden="true"
@@ -65,7 +65,7 @@ const FlyoutMenus = () => {
                           <div key={section.name}>
                             <p
                               id={`${section.name}-heading`}
-                              className="font-medium text-gray-900"
+                              className="font-bold text-gray-700"
                             >
                               {section.name}
                             </p>
@@ -78,7 +78,7 @@ const FlyoutMenus = () => {
                                 <li key={item.name} className="flex">
                                   <a
                                     href={item.href}
-                                    className="hover:text-gray-800"
+                                    className="hover:text-blue-700"
                                   >
                                     {item.name}
                                   </a>
@@ -99,7 +99,7 @@ const FlyoutMenus = () => {
             <a
               key={page.name}
               href={page.href}
-              className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
+              className="flex items-center text-sm font-bold text-gray-700 hover:text-blue-700"
             >
               {page.name}
             </a>
@@ -109,7 +109,7 @@ const FlyoutMenus = () => {
             {/* Link đến hóa đơn */}
             <Link
               href="/orders"
-              className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
+              className="flex items-center text-sm font-bold text-gray-700 hover:text-blue-700"
             >
               <span> Hóa đơn</span>
             </Link>

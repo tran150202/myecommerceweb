@@ -39,11 +39,7 @@ function Header() {
   const [open, setOpen] = useState(false);
   const newLocal = "text";
   return (
-    <div
-    // className={`fixed top-0 w-full bg-gray-100 text-black font-bold text-center transition-all duration-500 z-50 ${
-    //   isShrunk ? "py-0   " : "py-28 "
-    // }`}
-    >
+    <div>
       <header className="">
         <nav aria-label="Top" className="max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="">
@@ -88,7 +84,7 @@ function Header() {
                   </div>
                 ) : (
                   // Nút đăng nhập nếu chưa đăng nhập
-                  <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+                  <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6 text-sm font-bold text-gray-700">
                     <SignInButton mode="modal" />
                     <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
                     <SignUpButton mode="modal" />

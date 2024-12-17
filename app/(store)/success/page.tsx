@@ -73,7 +73,7 @@ function SuccessPage() {
             <Link href="/orders">Xem chi tiết</Link>
           </Button>
           <Button asChild className="bg-green-600 hover:bg-green-700">
-            <Link href="/">Tiếp tục mua hàng</Link>
+            <Link href="/store">Tiếp tục mua hàng</Link>
           </Button>
         </div>
       </div>
