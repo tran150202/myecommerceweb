@@ -1,4 +1,4 @@
-"use client"; // Đánh dấu đây là component client-side cho Next.js.
+"use client";
 
 import {
   ClerkLoaded,
@@ -7,110 +7,152 @@ import {
   SignUpButton,
   UserButton,
   useUser,
-} from "@clerk/nextjs"; // Tích hợp xác thực với Clerk.
-import Link from "next/link"; // Điều hướng giữa các trang.
-import Form from "next/form"; // Form tìm kiếm.
-import useBasketStore from "@/store/store"; // Trạng thái giỏ hàng.
-import FlyoutMenus from "./FlyoutMenus";
-import { Bars3Icon, ShoppingBagIcon } from "@heroicons/react/16/solid";
-import MobileMenu from "./MobileMenu";
+} from "@clerk/nextjs";
+import Link from "next/link";
 import { useEffect, useState } from "react";
+import {
+  Bars3Icon,
+  ShoppingBagIcon,
+  MagnifyingGlassIcon,
+} from "@heroicons/react/24/outline";
+import useBasketStore from "@/store/store";
+import FlyoutMenus from "./FlyoutMenus";
+import MobileMenu from "./MobileMenu";
 
 function Header() {
   const [isShrunk, setIsShrunk] = useState(false);
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
+  const { user } = useUser();
+  const itemCount = useBasketStore((state) =>
+    state.items.reduce((total, item) => total + item.quantity, 0)
+  );
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsShrunk(true);
-      } else {
-        setIsShrunk(false);
-      }
+      setIsShrunk(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const { user } = useUser(); // Lấy thông tin người dùng đã đăng nhập.
-  const itemCount = useBasketStore(
-    (state) => state.items.reduce((total, item) => total + item.quantity, 0) // Tính tổng số sản phẩm trong giỏ hàng.
-  );
-  const [open, setOpen] = useState(false);
-  const newLocal = "text";
   return (
-    <div>
-      <header className="">
-        <nav aria-label="Top" className="max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="">
-            {/* Dòng trên cùng */}
-            <div className="flex h-16 items-center">
-              {/* Logo và liên kết đến trang chủ */}
-              <Link
-                href="/"
-                className="text-2xl font-bold text-blue-500 hover:opacity-50 cursor-pointer mx-auto sm:mx-0"
-              >
-                TRAN
-              </Link>
-              {/* Flyout menus */}
-              <FlyoutMenus />{" "}
-              {/* Hiển thị menu thả xuống khi trên màn hình lớn */}
-              {/* Form tìm kiếm */}
-              <Form
-                action="/search"
-                className="sm:w-auto sm:flex-1 sm:mx-4 mt-2 sm:mt-0"
-              >
-                <input
-                  type={newLocal}
-                  name="query"
-                  placeholder="Tìm sản phẩm"
-                  className="bg-gray-100 px-2 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 border w-full max-w-4xl"
-                />
-              </Form>
-              {/* Phần giỏ hàng và user */}
-              {/* Người dùng */}
-              <ClerkLoaded>
-                {/* Kiểm tra đăng nhập */}
+    <header
+      className={`
+        fixed top-0 left-0 right-0 z-50 
+        transition-all duration-300 ease-in-out
+        ${
+          isShrunk ? "bg-white/90 shadow-md backdrop-blur-sm" : "bg-transparent"
+        }
+      `}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 lg:h-20">
+          {/* Logo */}
+          <Link
+            href="/"
+            className="text-3xl font-black text-blue-600 
+            transition-transform hover:scale-105 hover:text-blue-700"
+          >
+            TRAN
+          </Link>
 
-                {/* Hiển thị tên người dùng nếu đã đăng nhập */}
-                {user ? (
-                  <div className="flex items-center space-x-2 ml-0 sm:ml-0">
-                    <div> </div>
-                    <UserButton /> {/* Nút profile người dùng */}
-                    <div className="hidden sm:block text-xs">
-                      <p className="text-gray-400">Chào mừng</p>
-                      <p className="font-bold">{user.fullName}!</p>
-                    </div>
-                  </div>
-                ) : (
-                  // Nút đăng nhập nếu chưa đăng nhập
-                  <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6 text-sm font-bold text-gray-700">
-                    <SignInButton mode="modal" />
-                    <span aria-hidden="true" className="h-6 w-px bg-gray-200" />
-                    <SignUpButton mode="modal" />
-                  </div>
-                )}
-              </ClerkLoaded>
-              {/* Giỏ hàng */}
-              <div className="ml-4 flow-root lg:ml-6">
-                <a href="/basket" className="group -m-2 flex items-center p-2">
-                  <ShoppingBagIcon
-                    aria-hidden="true"
-                    className="size-6 shrink-0 text-gray-400 group-hover:text-gray-500"
+          {/* Navigation Menus on Large Screens */}
+          <div className="hidden lg:flex items-center space-x-6">
+            <FlyoutMenus />
+          </div>
+
+          {/* Search Section */}
+          <div className="flex-grow mx-4 hidden md:block">
+            <div className="relative">
+              <form action="/search" className="w-full max-w-md mx-auto">
+                <div className="relative">
+                  <MagnifyingGlassIcon
+                    className="absolute left-3 top-1/2 -translate-y-1/2 
+                    w-5 h-5 text-gray-400"
                   />
-                  <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                    {itemCount}
-                  </span>
-                  <span className="sr-only">items in cart, view bag</span>
-                </a>
-              </div>
-              <MobileMenu />
+                  <input
+                    type="text"
+                    name="query"
+                    placeholder="Tìm sản phẩm"
+                    className="w-full pl-10 pr-4 py-2 
+                    bg-gray-100 rounded-full 
+                    focus:outline-none focus:ring-2 focus:ring-blue-500 
+                    transition-all duration-300"
+                  />
+                </div>
+              </form>
             </div>
           </div>
-        </nav>
-      </header>
-    </div>
+
+          {/* User & Cart Actions */}
+          <div className="flex items-center space-x-4">
+            {/* Mobile Search Toggle */}
+            <button
+              onClick={() => setIsSearchVisible(!isSearchVisible)}
+              className="md:hidden text-gray-600 hover:text-blue-600"
+            >
+              <MagnifyingGlassIcon className="w-6 h-6" />
+            </button>
+
+            {/* User Authentication */}
+            <ClerkLoaded>
+              {user ? (
+                <div className="flex items-center space-x-2">
+                  <UserButton />
+                  <div className="hidden sm:block">
+                    <p className="text-xs text-gray-400">Chào mừng</p>
+                    <p className="text-sm font-semibold">{user.fullName}</p>
+                  </div>
+                </div>
+              ) : (
+                <div className="hidden lg:flex items-center space-x-4">
+                  <SignInButton mode="modal" />
+                  <SignUpButton mode="modal" />
+                </div>
+              )}
+            </ClerkLoaded>
+
+            {/* Shopping Cart */}
+            <Link href="/basket" className="relative group flex items-center">
+              <ShoppingBagIcon
+                className="w-6 h-6 text-gray-500 
+                group-hover:text-blue-600 transition-colors"
+              />
+              {itemCount > 0 && (
+                <span
+                  className="absolute -top-2 -right-2 
+                  bg-red-500 text-white text-xs rounded-full 
+                  w-5 h-5 flex items-center justify-center"
+                >
+                  {itemCount}
+                </span>
+              )}
+            </Link>
+
+            {/* Mobile Menu Toggle */}
+            <MobileMenu />
+          </div>
+        </div>
+
+        {/* Mobile Search Dropdown */}
+        {isSearchVisible && (
+          <div className="md:hidden px-4 pb-4 z-30">
+            <form action="/search" className="w-full">
+              <input
+                type="text"
+                name="query"
+                placeholder="Tìm sản phẩm"
+                className="w-full px-4 py-2 
+                bg-gray-100 rounded-full 
+                focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </form>
+          </div>
+        )}
+      </div>
+    </header>
   );
 }
 
-export default Header; // Xuất component Header.
+export default Header;

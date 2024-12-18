@@ -31,7 +31,7 @@ const MobileMenu = () => {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="relative rounded-md bg-white p-2 text-gray-400 lg:hidden"
+        className="relative rounded-md  p-2 text-gray-400 lg:hidden"
       >
         <span className="absolute -inset-0.5" />
         <span className="sr-only">Open menu</span>
@@ -43,7 +43,7 @@ const MobileMenu = () => {
           className="fixed inset-0 bg-black/25 transition-opacity duration-300 ease-linear data-[closed]:opacity-0"
         />
 
-        <div className="fixed inset-0 z-40 flex">
+        <div className="fixed inset-0 z-50 flex">
           <DialogPanel
             transition
             className="relative ml-auto flex w-full max-w-xs transform flex-col overflow-y-auto bg-white pb-12 shadow-xl transition duration-300 ease-in-out data-[closed]:translate-x-full"

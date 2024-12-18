@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import { SanityLive } from "@/sanity/lib/live";
 import Footer from "@/components/Footer";
 import ScrollWatcher from "@/components/ScrollWatcher";
+import { createTheme, MantineProvider } from "@mantine/core";
 
 export default function RootLayout({
   children,
@@ -14,10 +15,10 @@ export default function RootLayout({
   return (
     <ClerkProvider dynamic>
       <html lang="en">
-        <body className="relative">
+        <body className="">
           <ScrollWatcher />
           <Header />
-          {children}
+          <main className="mt-20 ">{children}</main>
           <SanityLive />
           <Footer />
         </body>

@@ -3,28 +3,12 @@
 import React, { useEffect, useState } from "react";
 import {
   ShoppingBag,
-  Shirt,
-  Sparkles,
   Truck,
-  RefreshCw,
-  Shield,
   Star,
-  CreditCard,
   Globe,
-  Headphones,
-  Gift,
-  Check,
   MapPin,
-  Mail,
-  ChevronsRight,
-  Clock,
-  CheckCircle,
-  Users,
   Box,
-  DollarSign,
-  Repeat,
   Lock,
-  ShieldCheck,
   Quote,
 } from "lucide-react";
 import {
@@ -164,7 +148,7 @@ const Hero = () => {
                     <p className="text-gray-600 text-center flex-grow">
                       {service.desc}
                     </p>
-                    <div className="mt-4 h-1 w-16 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                    <div className="mt-4 h-1 w-16 bg-gradient-to-r from-blue-500 to-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
                   </div>
                 </FadeInContent>
               </div>
@@ -238,7 +222,7 @@ const Hero = () => {
                       {mission.description}
                     </p>
 
-                    <div className="mt-4 h-1 w-16 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                    <div className="mt-4 h-1 w-16 bg-gradient-to-r from-blue-500 to-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
                   </div>
                 </FadeInContent>
               </div>
@@ -348,7 +332,7 @@ const Hero = () => {
                     <p className="text-gray-600 text-center flex-grow">
                       {service.description}
                     </p>
-                    <div className="mt-4 h-1 w-16 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                    <div className="mt-4 h-1 w-16 bg-gradient-to-r from-blue-500 to-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
                   </div>
                 </FadeInContent>
               </div>
@@ -356,7 +340,6 @@ const Hero = () => {
           </div>
         </div>
       </section>
-
       <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -440,7 +423,7 @@ const Hero = () => {
       <section className="py-16 bg-gradient-to-br from-white to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4">
+            <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-900  mb-4">
               Đánh Giá Từ Khách Hàng
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -455,44 +438,45 @@ const Hero = () => {
             >
               <Quote className="absolute top-4 left-4 text-blue-100 w-12 h-12" />
               <Quote className="absolute bottom-4 right-4 text-blue-100 w-12 h-12 rotate-180" />
-
-              <div className=" flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8 animate-fade-in">
-                <div className="shrink-0">
-                  <img
-                    src={reviews[currentReview].avatar}
-                    alt={reviews[currentReview].name}
-                    className="w-24 h-24 rounded-full border-4 border-blue-100 shadow-lg animate-scale-in"
-                  />
-                </div>
-
-                <div className="text-center md:text-left flex-grow">
-                  <div className="flex justify-center md:justify-start mb-4">
-                    {[...Array(reviews[currentReview].rating)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-6 h-6 text-yellow-400 fill-yellow-400"
-                      />
-                    ))}
+              <FadeInContent>
+                <div className=" flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8 animate-fade-in">
+                  <div className="shrink-0">
+                    <img
+                      src={reviews[currentReview].avatar}
+                      alt={reviews[currentReview].name}
+                      className="w-24 h-24 rounded-full border-4 border-blue-100 shadow-lg animate-scale-in"
+                    />
                   </div>
 
-                  <p className="text-gray-700 text-xl italic mb-4">
-                    "{reviews[currentReview].quote}"
-                  </p>
+                  <div className="text-center md:text-left flex-grow">
+                    <div className="flex justify-center md:justify-start mb-4">
+                      {[...Array(reviews[currentReview].rating)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="w-6 h-6 text-yellow-400 fill-yellow-400"
+                        />
+                      ))}
+                    </div>
 
-                  <div>
-                    <h4 className="text-xl font-bold text-gray-900">
-                      {reviews[currentReview].name}
-                    </h4>
-                    <p className="text-gray-600">
-                      {reviews[currentReview].role}
+                    <p className="text-gray-700 text-xl italic mb-4">
+                      "{reviews[currentReview].quote}"
                     </p>
+
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900">
+                        {reviews[currentReview].name}
+                      </h4>
+                      <p className="text-gray-600">
+                        {reviews[currentReview].role}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </FadeInContent>
             </div>
 
             {/* Review Indicators */}
-            <div className="flex justify-center mt-6 space-x-2">
+            <div className="flex justify-center mt-6 space-x-2 ">
               {reviews.map((_, index) => (
                 <button
                   key={index}

@@ -12,7 +12,8 @@ const Footer = () => {
           <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
             <Link
               href="/"
-              className="text-2xl font-bold text-blue-500 hover:opacity-50 cursor-pointer mx-auto sm:mx-0"
+              className="text-3xl font-black text-blue-600 
+            transition-transform hover:scale-105 hover:text-blue-700"
             >
               TRAN
             </Link>
@@ -225,7 +226,7 @@ const Footer = () => {
         <hr className="mt-16 mb-10 border-gray-200" />
 
         <p className="text-sm text-center text-gray-600">
-          © Bản quyền 2021, Mọi quyền được bảo lưu bởi TRAN
+          © Bản quyền 2024, Mọi quyền được bảo lưu bởi TRAN
         </p>
       </div>
     </section>
