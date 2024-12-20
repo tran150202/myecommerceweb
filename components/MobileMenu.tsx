@@ -18,7 +18,6 @@ import {
   TabPanels,
 } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
-import { FastForward } from "lucide-react";
 import Link from "next/link";
 import React, { Fragment, useState } from "react";
 
@@ -61,7 +60,7 @@ const MobileMenu = () => {
             </div>
 
             {/* Links */}
-            <TabGroup className="mt-2">
+            <TabGroup className="mt-2 z-20">
               <div className="border-b border-gray-200">
                 <TabList className="-mb-px flex space-x-8 px-4">
                   {navigation.categories.map((category) => (
