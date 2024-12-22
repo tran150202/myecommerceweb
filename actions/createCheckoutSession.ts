@@ -62,7 +62,7 @@ export async function createCheckoutSession(
       cancel_url: cancelUrl, // URL hủy
       line_items: items.map((item) => ({
         price_data: {
-          currency: "gbp", // Tiền tệ
+          currency: "vnd", // Tiền tệ
           unit_amount: Math.round(item.product.price!), // Chuyển giá thành cents
           product_data: {
             name: item.product.name || "Unamed product", // Tên sản phẩm
