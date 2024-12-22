@@ -41,7 +41,7 @@ export async function createCheckoutSession(
     // Cố định baseUrl với domain chính trong môi trường production
     const baseUrl =
       process.env.NODE_ENV === "production"
-        ? `https://myecommerceweb-xi.vercel.app` // Domain chính trong môi trường production
+        ? `https://${process.env.VERCEL_URL}` // Domain chính trong môi trường production
         : `${process.env.NEXT_PUBLIC_BASE_URL}`; // Domain cục bộ trong môi trường khác
 
     const successUrl = `${baseUrl}/success?session_id={CHECKOUT_SESSION_ID}&orderNumber=${metadata.orderNumber}`;
@@ -49,8 +49,6 @@ export async function createCheckoutSession(
 
     console.log("SUCCESS URL <<<<<", successUrl);
     console.log("CANCEL URL <<<<<<", cancelUrl);
-    console.log("METADATA <<<<<<", metadata);
-    console.log("customerId <<<<<<", customerId);
 
     // Tạo session thanh toán với Stripe
     const session = await stripe.checkout.sessions.create({
