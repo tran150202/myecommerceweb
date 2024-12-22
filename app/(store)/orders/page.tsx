@@ -71,7 +71,7 @@ async function Orders() {
                   <div className="sm:text-right">
                     <p className="text-xs text-gray-600 mb-1">Tổng số tiền</p>
                     <p className="font-bold text-lg">
-                      {formatCurrency((order.totalPrice ?? 0) * 1000)}
+                      {formatCurrency(order.totalPrice ?? 0)}
                     </p>
                   </div>
 
