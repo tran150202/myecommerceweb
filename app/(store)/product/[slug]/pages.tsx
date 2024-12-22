@@ -72,6 +72,9 @@ const ProductPage = ({ isOpen, closeModal, product }: ProductPageProps) => {
                       <h1 className="text-4xl font-bold mb-6 text-gray-800">
                         {product.name ?? "Tên sản phẩm"}
                       </h1>
+                      <p className="text-xl  mb-6 text-gray-700">
+                        Số lượng: {product.stock ?? ""}
+                      </p>
                       <div className="text-2xl font-semibold mb-6 text-gray-700">
                         {product.price?.toLocaleString("vi-VN")} VND
                       </div>

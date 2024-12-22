@@ -36,6 +36,7 @@
     "docker": "^1.0.0",
     "framer-motion": "^11.11.11",
     "heroicons": "^2.2.0",
+    "lsof": "^0.0.4",
     "lucide-react": "^0.456.0",
     "mtn-momo": "^2.0.0",
     "next": "^15.0.3",
@@ -69,5 +70,14 @@
     "postcss-simple-vars": "^7.0.1",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.7.2"
+  },
+  "MomoAPI": {
+    "MomoAPI": "https://test-payment.momo.vn/gw_payment/transactionProcessor",
+    "SecretKey": "K951B6PE1waDMi640xX08PD3vg6EkVlz",
+    "AccessKey": "F8BBA842ECF85",
+    "ReturnUrl": "http://localhost:3000/PaymentCallBack",
+    "NotifyUrl": "http://localhost:3000/MomoNotify",
+    "PartnerCode": "MOMO",
+    "RequestType": "captureMoMoWallet"
   }
 }

@@ -42,7 +42,7 @@ function Header() {
         fixed top-0 left-0 right-0 z-10
         transition-all duration-300 ease-in-out
         ${
-          isShrunk ? "bg-white/90 shadow-md backdrop-blur-sm" : "bg-transparent"
+          isShrunk ? "bg-white/80 shadow-md backdrop-blur-sm" : "bg-transparent"
         }
       `}
     >
@@ -106,7 +106,7 @@ function Header() {
                   </div>
                 </div>
               ) : (
-                <div className="hidden lg:flex items-center space-x-4">
+                <div className=" lg:flex  space-x-4 flex items-center text-sm font-bold text-gray-700">
                   <SignInButton mode="modal" />
                   <SignUpButton mode="modal" />
                 </div>

@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider dynamic>
-      <html lang="en">
+      <html lang="en" className="mdl-js">
         <body className="">
           <ScrollWatcher />
           <Header />

@@ -49,6 +49,8 @@ export async function createCheckoutSession(
 
     console.log("SUCCESS URL <<<<<", successUrl);
     console.log("CANCEL URL <<<<<<", cancelUrl);
+    console.log("METADATA <<<<<<", metadata);
+    console.log("customerId <<<<<<", customerId);
 
     // Tạo session thanh toán với Stripe
     const session = await stripe.checkout.sessions.create({
@@ -63,7 +65,7 @@ export async function createCheckoutSession(
       line_items: items.map((item) => ({
         price_data: {
           currency: "gbp", // Tiền tệ
-          unit_amount: Math.round(item.product.price! * 100), // Chuyển giá thành cents
+          unit_amount: Math.round(item.product.price!), // Chuyển giá thành cents
           product_data: {
             name: item.product.name || "Unamed product", // Tên sản phẩm
             description: `Product ID ${item.product._id}`, // Mô tả sản phẩm

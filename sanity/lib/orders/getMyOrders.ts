@@ -5,6 +5,8 @@ export async function getMyOrders(userId: string) {
   if (!userId) {
     throw new Error("User Id is required");
   }
+  console.log("User ID:", userId); // Xác minh giá trị userId
+
   const MY_ORDERS_QUERY = defineQuery(`
         *[
             _type == "order" && clerkUserId == $userId
