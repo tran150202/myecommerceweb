@@ -41,7 +41,7 @@ export async function createCheckoutSession(
     // Cố định baseUrl với domain chính trong môi trường production
     const baseUrl =
       process.env.NODE_ENV === "production"
-        ? `https://${process.env.VERCEL_URL}` // Domain chính trong môi trường production
+        ? `https://myecommerceweb-trans-projects-74734ddf.vercel.app` // Domain chính trong môi trường production
         : `${process.env.NEXT_PUBLIC_BASE_URL}`; // Domain cục bộ trong môi trường khác
 
     const successUrl = `${baseUrl}/success?session_id={CHECKOUT_SESSION_ID}&orderNumber=${metadata.orderNumber}`;
