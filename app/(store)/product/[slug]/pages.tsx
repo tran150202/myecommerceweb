@@ -78,7 +78,7 @@ const ProductPage = ({ isOpen, closeModal, product }: ProductPageProps) => {
                       <div className="text-2xl font-semibold mb-6 text-gray-700">
                         {product.price?.toLocaleString("vi-VN")} VND
                       </div>
-                      <p className="mt-2 text-sm text-gray-600 line-clamp-2">
+                      <p className="mt-2 text-sm text-gray-600">
                         {/* Mô tả sản phẩm */}
                         {Array.isArray(product.description)
                           ? product.description
