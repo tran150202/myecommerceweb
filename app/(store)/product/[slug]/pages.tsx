@@ -78,6 +78,20 @@ const ProductPage = ({ isOpen, closeModal, product }: ProductPageProps) => {
                       <div className="text-2xl font-semibold mb-6 text-gray-700">
                         {product.price?.toLocaleString("vi-VN")} VND
                       </div>
+                      <p className="mt-2 text-sm text-gray-600 line-clamp-2">
+                        {/* Mô tả sản phẩm */}
+                        {Array.isArray(product.description)
+                          ? product.description
+                              .map((block) =>
+                                block._type === "block"
+                                  ? block.children
+                                      ?.map((child) => child.text || "")
+                                      .join("") // Xử lý mảng mô tả
+                                  : ""
+                              )
+                              .join("") || "No description available" // Nếu không có mô tả, hiển thị "No description available"
+                          : product.description || "No description available"}
+                      </p>
                     </div>
 
                     <div className="mt-6 space-y-4">
